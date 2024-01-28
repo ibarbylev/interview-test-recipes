@@ -32,7 +32,7 @@ class RecipeComposition(models.Model):
 
     def get_recipe_ingredients(self):
         # Get all ingredients for current recipe
-        return self.recipe.ingredient_set.values_list('name', flat=True)
+        return self.recipe.recipecomposition_set.values_list('ingredient__name', flat=True)
 
     def __str__(self):
         return f"Recipe: {self.recipe.name}| ingredient: {self.ingredient}"
