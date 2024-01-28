@@ -40,13 +40,13 @@ class RecipeComposition(models.Model):
 
 @receiver(post_save, sender=RecipeComposition)
 def increase_howmany_used(sender, instance, **kwargs):
-    # При сохранении новой записи в RecipeComposition увеличиваем howmany_used на 1
-    instance.ingredient.howmany_used += 1
+    # When saving a new entry in RecipeComposition, increase howmany_used by 1
+    instance.ingredient.times_used += 1
     instance.ingredient.save()
 
 
 @receiver(post_delete, sender=RecipeComposition)
 def decrease_howmany_used(sender, instance, **kwargs):
-    # При удалении записи в RecipeComposition уменьшаем howmany_used на 1
-    instance.ingredient.howmany_used -= 1
+    # When deleting a new entry in RecipeComposition, decrease howmany_used by 1
+    instance.ingredient.times_used -= 1
     instance.ingredient.save()
