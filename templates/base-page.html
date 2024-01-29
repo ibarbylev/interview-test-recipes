@@ -4,12 +4,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static '/css/bootstrap-5.3/bootstrap.min.css' %}">
     <title>{% block page_title %} {% endblock page_title %}</title>
 </head>
 <body>
-    {% block container %}
+    <div class="container-fluid">
+        {% block container %}
 
-    {% endblock container %}
-
+        {% endblock container %}
+    </div>
+    <script src="{% static '/js/bootstrap-5.3/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>
